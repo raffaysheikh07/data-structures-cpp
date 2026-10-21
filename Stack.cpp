@@ -28,6 +28,5 @@ int main(){
     s.push(30);
     s.pop();
     s.list -> display();
-    std :: cout << "These are basic functions in stack!!\n";
     return 0; 
 }
