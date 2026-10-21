@@ -1,4 +1,9 @@
+# Ignore all executable binary files
 *.exe
 *.out
 *.o
-a.out
+
+# Ignore compiler build folders (if you use an IDE)
+.vscode/
+bin/
+obj/git 
