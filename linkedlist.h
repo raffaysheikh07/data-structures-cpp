@@ -14,7 +14,6 @@ public:
     }
 };
 static Node* head = nullptr;
-
 class Linkedlist{
 public:
 inline void insert(int val) {

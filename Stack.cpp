@@ -1,6 +1,5 @@
 #include<iostream>
 #include "linkedlist.h"
-
 class Stack{
     public:
     Linkedlist* list; 
