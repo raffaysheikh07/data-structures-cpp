@@ -1,5 +1,7 @@
 #include<iostream>
 #include "linkedlist.h"
+using namespace std;
+
 class Stack{
     public:
     Linkedlist* list; 
@@ -15,6 +17,18 @@ class Stack{
         int val = list -> deleteHead();
         return val;
     }
+
+    void peek(){
+    if(head == nullptr){
+        cout << "Stack is empty!!" << endl;
+        return;
+    }
+    cout << "Top: " << head -> data << endl;
+}
+
+    bool isEmpty(){
+        return head == nullptr;
+}
 };
 
 int main(){
@@ -26,6 +40,7 @@ int main(){
     s.push(25);
     s.push(30);
     s.pop();
+    s.peek();
     s.list -> display();
     return 0; 
 }
