@@ -1,3 +1,4 @@
+// Stack implement with linked list as a header file
 #include<iostream>
 #include "linkedlist.h"
 using namespace std;
@@ -9,8 +10,12 @@ class Stack{
         list = new Linkedlist();
     }
 
+    ~Stack(){
+        delete list;
+    }
+
     void push(int val){
-        list -> insertAt(val);
+        list -> insert(val);
     }
 
     int pop(){
@@ -18,17 +23,17 @@ class Stack{
         return val;
     }
 
-    void peek(){
-    if(head == nullptr){
-        cout << "Stack is empty!!" << endl;
-        return;
+    void peek() {
+        if (list->isEmpty()) {
+            cout << "Stack is empty!!" << endl;
+            return;
+        }
+        cout << "Top: " << list->front() << endl;
     }
-    cout << "Top: " << head -> data << endl;
-}
-
+    
     bool isEmpty(){
-        return head == nullptr;
-}
+        return list -> isEmpty();
+    }
 };
 
 int main(){
@@ -39,8 +44,17 @@ int main(){
     s.push(20);
     s.push(25);
     s.push(30);
-    s.pop();
-    s.peek();
     s.list -> display();
+    cout << "size: " << s.list->size() << endl;
+
+    Stack s2;
+    s2.push(5);
+    s2.push(10);
+    s2.push(15);
+    s2.push(20);
+    s2.push(25);
+    s2.push(30);
+    s2.list -> display();
+    cout << "size: " << s2.list -> size() << endl;
     return 0; 
 }

@@ -1,22 +1,44 @@
+// Linked list code converted into file 
 #ifndef LINKEDLIST_H
 #define LINKEDLIST_H
 
 #include <iostream>
 
-class Node {
+class Node{
 public:
     int data;
     Node* next;
 
-    Node() {
+    Node(){
         data = 0;
         next = nullptr;
     }
 };
-static Node* head = nullptr;
+
 class Linkedlist{
+private:
+    Node* head;
 public:
-inline void insert(int val) {
+
+    Linkedlist(){
+        head = nullptr;
+    }
+
+    ~Linkedlist(){
+        while (head != nullptr) {
+            Node* temp = head;
+            head = head->next;
+            delete temp;
+        }
+    }
+
+    inline  bool isEmpty() { 
+        return head == nullptr;
+    }
+
+    inline int front() { return head == nullptr ? -1 : head->data; }
+
+    inline void insert(int val) {
     Node* obj = new Node();
     obj->data = val;
     obj->next = nullptr;
@@ -127,6 +149,16 @@ inline bool search(int val) {
     return false;
 }
 
+inline int size(){
+    Node* temp = head;
+    int count = 0;
+    while(temp != nullptr){
+        count++;
+        temp = temp -> next;
+    }
+    return count;
+}
+
 inline void display() {
     Node* temp = head;
     while (temp != nullptr) {
@@ -136,5 +168,4 @@ inline void display() {
     std::cout << " nullptr" << std::endl;
 }
 };
-
 #endif
