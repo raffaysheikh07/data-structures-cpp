@@ -44,15 +44,17 @@ class Stack{
         size++;
     }
 
-    void pop(){
+    int pop(){
         if(head == nullptr){
             cout << "list is empty!!" << endl;
-            return;
+            return -1;
         }
+        int val = head -> data;
         Node* temp = head;
         head = temp -> next;
         delete temp;
         size--;
+        return val;
     }
 
     void peek(){
@@ -69,7 +71,8 @@ class Stack{
 
     int Sizeof(){
         cout << "Size of stack: " << size << endl;
-}
+        return size;
+    }
 
     void display(){
         Node* temp = head;
@@ -91,6 +94,7 @@ int main(){
     s.push(8);
     s.push(10);
     s.push(12);
+    s.pop();
     s.Sizeof();
     s.peek();
     s.display();
